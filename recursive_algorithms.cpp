@@ -75,16 +75,19 @@ int fibonacci(int n) {
 // ------------------------------------------------------------
 // Tower of Hanoi
 // ------------------------------------------------------------
-int towerOfHanoi(int n) {
+void towerOfHanoi(int n, int src, int dest, int aux) {
     // Base case
-    if (n == 1) return 1;
+    if (n <= 0) return ;
 
     // Recursive step
-    int partialTower = towerOfHanoi(n - 1);
+    towerOfHanoi(n - 1, src, aux, dest);
 
+    printf("Move disk %d from %d to %d\n", n, src, dest);
     // Merge
-    return partialTower + towerOfHanoi(n - 2);
+    towerOfHanoi(n - 1, aux, dest, src);
 }   
+
+
 
 int main(int argc, char** argv) {
     ios::sync_with_stdio(false);
