@@ -30,6 +30,62 @@ int sumOnetoN(int n, long long& callCount) {
     return partialSum + n;
 }
 
+// ------------------------------------------------------------
+// Dizi toplamı
+// ------------------------------------------------------------
+int sumArr(int A[], int N) {
+    // Base case
+    if (N == 1) return A[0];
+
+    // Recursive step
+    int partialSum = sumArr(A, N - 1);
+
+    // Merge
+    return partialSum + A[N - 1];
+}
+
+// ------------------------------------------------------------
+// a^n
+// ------------------------------------------------------------
+int power(int a, int n) {
+    // Base case
+    if (n == 0) return 1;
+
+    // Recursive step
+    int partialPower = power(a, n - 1);
+
+    // Merge
+    return partialPower * a;
+}
+
+// ------------------------------------------------------------
+// Fibonacci
+// ------------------------------------------------------------
+int fibonacci(int n) {
+    // Base case
+    if (n == 0 || n == 1) return n;
+
+    // Recursive step
+    int partialFib = fibonacci(n - 1);
+
+    // Merge
+    return partialFib + fibonacci(n - 2);
+}   
+
+// ------------------------------------------------------------
+// Tower of Hanoi
+// ------------------------------------------------------------
+int towerOfHanoi(int n) {
+    // Base case
+    if (n == 1) return 1;
+
+    // Recursive step
+    int partialTower = towerOfHanoi(n - 1);
+
+    // Merge
+    return partialTower + towerOfHanoi(n - 2);
+}   
+
 int main(int argc, char** argv) {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
